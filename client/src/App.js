@@ -1,5 +1,4 @@
 import React from "react";
-
 import { WEATHER_API_KEY } from "./weatherAPI_KEY/WeatherAPI_KEY";
 import { getWeatherData } from "./getWeatherData";
 
@@ -31,21 +30,29 @@ class App extends React.Component {
 	}
 
 	getCurrentWeather() {
+		this.getCurrentPosition();
 		getWeatherData(
-			{ lat: this.lat, lon: this.lon, key: WEATHER_API_KEY },
+			{ lat: this.state.position.lat, lon: this.state.position.lon , key: WEATHER_API_KEY },
 			(weatherData) => {
-				console.log(weatherData);
+				console.log('hi',weatherData);
 			}
 		);
 	}
 
+	
 	componentDidMount() {
 		this.getCurrentPosition();
+		setTimeout(() => {
+			this.getCurrentWeather();
+		}, 3000);
 	}
 
+
+
 	render() {
-		console.log(this.state.position);
-		return <div className="App"></div>;
+		return <div>
+				hello
+		</div>;
 	}
 }
 
