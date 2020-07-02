@@ -1,0 +1,26 @@
+{
+  "name": "quadcore-lookether",
+  "version": "1.0.0",
+  "description": "### Readme에 들어가야 할 것들",
+  "main": "estimated_time.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codestates/QuadCore-LookEther.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codestates/QuadCore-LookEther/issues"
+  },
+  "homepage": "https://github.com/codestates/QuadCore-LookEther#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.5.0",
+    "@typescript-eslint/parser": "^3.5.0",
+    "eslint": "^7.3.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4"
+  }
+}
