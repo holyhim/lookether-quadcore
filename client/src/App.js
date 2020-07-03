@@ -1,5 +1,5 @@
 import React from "react";
-import { WEATHER_API_KEY } from "./weatherAPI_KEY/WeatherAPI_KEY";
+import { WEATHER_API_KEY } from "../weatherAPI_KEY/WeatherAPI_KEY";
 import { getWeatherData } from "./getWeatherData";
 
 class App extends React.Component {
@@ -28,14 +28,12 @@ class App extends React.Component {
 			alert("현재 위치 정보가 현재 브라우저에서 지원하지 않습니다.");
 		}
 	}
-
 	getCurrentWeather() {
 		getWeatherData(
 			{ lat: this.state.position.lat, lon: this.state.position.lon , key: WEATHER_API_KEY }
 			);
 	}
 
-	
 	componentDidMount() {
 		this.getCurrentPosition();
 		setTimeout(() => {
