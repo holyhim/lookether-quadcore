@@ -1,11 +1,11 @@
-const { user } = require('./models');
+const { userInfo } = require('./models');
 module.exports = {
   signInController: (req, res) => {
     // TODO : 로그인 및 인증 부여 로직 작성
     var session = req.session;
     var {email, password} = req.body; // 로그인 시에는 email이랑 password만 필요.
 
-    user
+    userInfo
     .findOne({where : {email:email, password:password}}) //findOne: 찾는것 
     .then (result => {
       if(result){
@@ -23,7 +23,7 @@ module.exports = {
   signUpController: (req, res) => {  // findOrCreate :찾아서 없으면 만들어라 where이 기준점
     // TODO : 회원가입 로직 및 유저 생성 로직 작성
     const{email, password, username, gender} = req.body; //body에 필요한 것들 >> 테케에 나와있음
-    user
+    userInfo
     .findOrCreate({where :{email : email}, defaults: {username, password, gender}}) // 없으면 defaults를 생성해라
     .then(([result, created])=>{  // then promise 
       if(created){ 
