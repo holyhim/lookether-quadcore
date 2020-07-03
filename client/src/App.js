@@ -1,52 +1,52 @@
 import React from "react";
+
 import { WEATHER_API_KEY } from "../weatherAPI_KEY/WeatherAPI_KEY";
-import { getWeatherData } from "./getWeatherData";
+import { getWeatherData , reverseGeo } from "../getWeatherData";
+// import { Toggle } from "./pages/Toggle"
+// import { Currentweather } from "./pages/Currentweather"
+// import { Mypage } from "./pages/Mypage"
+// import { Signin } from "./pages/Signin"
+// import { Signup } from "./pages/Signup"
+// import { Todaycloth } from "./pages/Todaycloth"
+// import { Weekweather } from "./pages/Weekweather"
 
 class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			isLogin: "",
-			userInfo: {},
-			position: {
-				lat: "",
-				lon: "",
-			},
-		};
-	}
-	getCurrentPosition() {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition((position) => {
-				this.setState({
-					position: {
-						lat: position.coords.latitude,
-						lon: position.coords.longitude,
-					},
-				});
-			});
-		} else {
-			alert("현재 위치 정보가 현재 브라우저에서 지원하지 않습니다.");
-		}
-	}
-	getCurrentWeather() {
-		getWeatherData(
-			{ lat: this.state.position.lat, lon: this.state.position.lon , key: WEATHER_API_KEY }
-			);
-	}
+	state = {
+		isLogin: false,
+		userInfo: {
+			email: "",
+			password: "",
+			username: "",
+			gender: ""
+		},
+		weatherInfo : {
+			
+		},
+		
+	};
 
 	componentDidMount() {
-		this.getCurrentPosition();
-		setTimeout(() => {
-			this.getCurrentWeather();
-		}, 3000);
+		this.getCurrentWeather();
 	}
 
 
 
 	render() {
-		return <div>
-				hello
-		</div>;
+		// const { isLogin , userInfo } = this.state;
+		return (
+				// <div>
+				// 	<Toggle/>
+				// 	<div>
+				// 		<Signin />
+				// 		<Signup/>	
+				// 	</div>
+				// 	<Currentweather/>
+				// 	<Weekweather/>
+				// 	<Todaycloth/>
+				// 	<Mypage/>
+				// </div> 
+				<div></div>
+		)
 	}
 }
 
