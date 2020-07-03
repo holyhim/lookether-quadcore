@@ -30,13 +30,9 @@ class App extends React.Component {
 	}
 
 	getCurrentWeather() {
-		this.getCurrentPosition();
 		getWeatherData(
-			{ lat: this.state.position.lat, lon: this.state.position.lon , key: WEATHER_API_KEY },
-			(weatherData) => {
-				console.log('hi',weatherData);
-			}
-		);
+			{ lat: this.state.position.lat, lon: this.state.position.lon , key: WEATHER_API_KEY }
+			);
 	}
 
 	
