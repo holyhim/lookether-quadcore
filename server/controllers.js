@@ -51,5 +51,24 @@ module.exports = {
     } else {
       res.redirect('/');
     }
-  }
+  },
+  userContoroller: (req, res) => {
+    // TODO : 유저 회원정보 요청 로직 작성
+    const { userid } = req.session
+    if( userid ){ // id 존재 => findOne으로 id가 userid인지 판단
+      user
+      .findOne({where : {id : userid}})
+      .then(result=>{
+        if( result) { // 위 검색이 존재하면
+          res.status(200).send(result); //200보내고 result를 databasedp에 전송
+        } else {
+          res.status(401).send(err); // 실패시 401 and err 전송
+        }
+      }).catch(err=>{
+        res.status(500).send(err);
+      })
+    } else {
+      res.status(401).end();
+    }
+  },
 };
