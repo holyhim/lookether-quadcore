@@ -1,7 +1,7 @@
 import React from "react";
 
-import { WEATHER_API_KEY } from "./weatherAPI_KEY/WeatherAPI_KEY";
-import { getWeatherData } from "./getWeatherData";
+import { WEATHER_API_KEY } from "../weatherAPI_KEY/WeatherAPI_KEY";
+import { getWeatherData } from "../getWeatherData";
 
 class App extends React.Component {
 	constructor(props) {
@@ -9,42 +9,34 @@ class App extends React.Component {
 		this.state = {
 			isLogin: "",
 			userInfo: {},
-			position: {
-				lat: "",
-				lon: "",
-			},
 		};
 	}
-	getCurrentPosition() {
+	// 화씨 => 섭씨 변환 공식
+	// C = (F - 32)/1.8
+	getCurrentWeather() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition((position) => {
-				this.setState({
-					position: {
+				getWeatherData(
+					{
 						lat: position.coords.latitude,
 						lon: position.coords.longitude,
+						key: WEATHER_API_KEY,
 					},
-				});
+					(data) => {
+						console.log(data);
+					}
+				);
 			});
 		} else {
 			alert("현재 위치 정보가 현재 브라우저에서 지원하지 않습니다.");
 		}
 	}
 
-	getCurrentWeather() {
-		getWeatherData(
-			{ lat: this.lat, lon: this.lon, key: WEATHER_API_KEY },
-			(weatherData) => {
-				console.log(weatherData);
-			}
-		);
-	}
-
 	componentDidMount() {
-		this.getCurrentPosition();
+		this.getCurrentWeather();
 	}
 
 	render() {
-		console.log(this.state.position);
 		return <div className="App"></div>;
 	}
 }
