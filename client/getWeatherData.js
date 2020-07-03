@@ -1,13 +1,17 @@
-import fetch from "node-fetch";
+// import fetch from "node-fetch";
+import axios from "axios";
 
-export const getWeatherData = ({ lat, lon, key }, callback) => {
-	fetch(
-		`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${key}`
-	)
+const getWeatherData = ({ lat, lon, key }, callback) => {
+	axios
+		.get(
+			`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${key}&units=metric`
+		)
 		.then((res) => {
-			return res.json();
+			callback(res.data);
 		})
-		.then((data) => {
-			callback(data);
+		.catch((err) => {
+			console.log(err);
 		});
 };
+
+export { getWeatherData };

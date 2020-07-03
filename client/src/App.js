@@ -4,13 +4,11 @@ import { WEATHER_API_KEY } from "../weatherAPI_KEY/WeatherAPI_KEY";
 import { getWeatherData } from "../getWeatherData";
 
 class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			isLogin: "",
-			userInfo: {},
-		};
-	}
+	state = {
+		isLogin: false,
+		userInfo: {},
+		weatherInfo: {},
+	};
 	// 화씨 => 섭씨 변환 공식
 	// C = (F - 32)/1.8
 	getCurrentWeather() {
@@ -24,6 +22,9 @@ class App extends React.Component {
 					},
 					(data) => {
 						console.log(data);
+						this.setState({
+							weatherInfo: {},
+						});
 					}
 				);
 			});
