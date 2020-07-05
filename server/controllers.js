@@ -1,4 +1,5 @@
 const { userInfo } = require('./models');
+const { userImg }  = require('./models');
 module.exports = {
   signInController: (req, res) => {
     // TODO : 로그인 및 인증 부여 로직 작성
@@ -56,7 +57,7 @@ module.exports = {
     // TODO : 유저 회원정보 요청 로직 작성
     const { userid } = req.session
     if( userid ){ // id 존재 => findOne으로 id가 userid인지 판단
-      user
+      userInfo
       .findOne({where : {id : userid}})
       .then(result=>{
         if( result) { // 위 검색이 존재하면
@@ -70,5 +71,5 @@ module.exports = {
     } else {
       res.status(401).end();
     }
-  },
+  },ㅇ
 };
