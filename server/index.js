@@ -6,14 +6,15 @@ dotenv.config()
 const session = require('express-session')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
-
+// console.log(process.env);
 
 require('./models')
 
 const {
     signInController,
     signUpController,
-    signOutController
+    signOutController,
+    userContoroller
 } = require('./controllers')
 
 const app  = express();
@@ -40,6 +41,7 @@ app.use(cookieParser())
 app.get('/signout', signOutController);
 app.post('/signin', signInController);
 app.post('/signup', signUpController);
+app.get('/user', userContoroller);
 
 app.listen(port, () => {
     console.log(`server listen on ${port}`)
