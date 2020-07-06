@@ -11,26 +11,54 @@ import { Signin } from "./pages/Signin"
 import { Signup } from "./pages/Signup"
 import { Todaycloth } from "./pages/Todaycloth"
 import { Weekweather } from "./pages/Weekweather"
+import { Contentpage } from "./pages/Contentpage"
 import './App.css';
 
 class App extends React.Component {
-	state = {
-		isLogin: false,
-		userInfo: {
-			email: "",
-			password: "",
-			username: "",
-			gender: ""
-		},
-		weatherInfo : {
-			
-		},
-		location:{
-			city:"",
-		}
+	constructor(props){
+		super(props)
+		this.state = {
+			showmain: true,
+			isLogin: false,
+			userInfo: {
+				email: "",
+				password: "",
+				username: "",
+				gender: ""
+			},
+			weatherInfo : {
+				icon:'',
+				temp:'',
+				feelslike:'',
+				min:'',
+				max:'',
+				rain:''
+			},
+			dailyInfo: {
+				icon:'',
+				min:'',
+				max:'',
+			},
+			location:{
+				city:""
+			}
+		};
+		this.hiddenMain = this.hiddenMain.bind(this)
+		this.showMain = this.showMain.bind(this)
+	}
+	
+	showMain(){
+		this.setState({
+			showmain : true
+		})
+	}
 
-	};
-
+	hiddenMain(){
+		this.setState({
+			showmain : false
+		})
+	}
+//var d = new Date(unixtime*1000); dt 변경 
 	getCurrentWeather = () => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition((position) => {
@@ -50,7 +78,8 @@ class App extends React.Component {
 						lon: position.coords.longitude,
 					},
 					(data) => {
-						console.log(data);
+						console.log(data.localityInfo.administrative[1].name)
+						this.setState({location:{city: data.localityInfo.administrative[1].name}})
 					}
 				)
 			});
@@ -66,20 +95,19 @@ class App extends React.Component {
 	render() {
 		// const { isLogin , userInfo } = this.state;
 		const { isLogin } = this.state;
+		const  main  = this.state.showmain;
 		return (
 <div className="App">
 <BrowserRouter>
 	<div id="nav" class="d-flex">
-		<Link to="/" id ="home"class="mr-auto p-2">LookEther</Link>
-		<Link to="/signin" button type="button" class="P2 btn btn-light btn-lg">Sign in</Link>
+		<Link to="/" id ="home"class="mr-auto p-2" onClick={this.showMain}>LookEther</Link>
+		<Link to="/signin" type="button" class="P2 btn btn-light btn-lg" onClick={this.hiddenMain}>Sign in</Link>
 	</div>
-	<div class="d-flex justify-content-center"><Toggle  /></div>
-	<div class="row justify-content-md-center">
-	<div class="row">
-    <div class="cur-weather"><Currentweather /></div>
-    <div class="cloth"><Todaycloth /></div>
-    </div>
-	</div>
+	<div class="d-flex justify-content-center"><Toggle city={this.state.location.city}/></div>
+	{main ? 
+		<div class="d-flex justify-content-center"><Contentpage /></div>
+		:<div class="d-flex justify-content-center"><Link to="/signin"></Link></div>
+	}
 	<Switch>
 		<Route exact path="/" ></Route>
 		<Route path="/signin" component ={Signin}></Route>

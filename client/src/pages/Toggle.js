@@ -1,13 +1,7 @@
 import React from 'react';
 
-class Toggle extends React.Component {
-  render() {
-    return (
+const Toggle = ({city}) => (
+  <div class="display-4">{city}</div>
+)
 
-    <div class="display-4">Seoul</div>
-
-    );
-  }
-}
-
-export {Toggle}
+export  {Toggle};

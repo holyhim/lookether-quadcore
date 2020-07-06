@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const getWeatherData = ({ lat, lon, key }, callback) => {
 	axios.get(
-		`http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${key}`
+		`http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${key}&units=metric`
 	)
 		.then((res) => {
 			callback(res.data);
