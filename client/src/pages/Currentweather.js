@@ -15,7 +15,6 @@ props = {
 */
 
 const Currentweather = (props) => {
-	console.log(props.weather.date)
 	return (
 		<div class="card">
 			<div class="card-body">

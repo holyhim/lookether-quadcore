@@ -3,37 +3,39 @@ import DefaultImg from "./DefaultImg"
 import { male } from "../../public/defaultClothes/male"
 // import { female } from "../public/defaultClothes/female"
 
-class Todayclothes extends React.Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			defaultImg: {
-				shirts: "",
-				pants: "",
-			},
-		}
-	}
+/*
+props = {
+  weather:{
+    icon: "",
+		temp: "",
+		feelslike: "",
+		min: "",
+		max: "",
+		rain: "",
+  }
+}
+*/
 
-	todayClothesHandler() {
-		if (this.state.userInfo.gender === male) {
-			if (this.state.currentWeatherInfo.temp >= 25) {
-				this.setState({
-					defaultImg: {
-						shirts: male.shortShirts,
-						pants: male.shortPants,
-					},
-				})
-			}
-		}
+const Todayclothes = (props) => {
+	let defaultClothes = {
+		shirts: "",
+		pants: "",
 	}
-
-	render() {
-		return (
-			<div>
-				<DefaultImg defaultImg={this.state.defaultImg.shirts}></DefaultImg>
-			</div>
-		)
+	if (props.weather >= 17) {
+		defaultClothes.shirts = male.shortShirts
+		defaultClothes.pants = male.shortPants
+	} else if (17 > props.weather || props.weather >= 10) {
+		defaultClothes.shirts = male.longShirts
+		defaultClothes.pants = male.pants
+	} else if (10 >= props.weather) {
+		defaultClothes.shirts = male.jacket
+		defaultClothes.pants = male.pants
 	}
+	return (
+		<div>
+			<DefaultImg defaultClothes={defaultClothes} />
+		</div>
+	)
 }
 
 export default Todayclothes
