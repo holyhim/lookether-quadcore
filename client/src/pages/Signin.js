@@ -35,7 +35,7 @@ class Signin extends React.Component {
             }}>
                 <input type="text" placeholder="Email"/>
                 <input type="password" placeholder="password"/>
-                <button type="submit">login</button>
+                <button>login</button>
                 <div class="message">Not registered? <Link to= "./signup">Create an account</Link></div>
             </form>
         </div>
