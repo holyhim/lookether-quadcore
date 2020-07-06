@@ -12,7 +12,6 @@ import { Signup } from "./pages/Signup"
 import { Todayclothes } from "./pages/Todayclothes"
 import { Weekweather } from "./pages/Weekweather"
 import { Contentpage } from "./pages/Contentpage"
-import { male } from "../public/defaultClothes/male"
 import "./App.css"
 
 class App extends React.Component {
@@ -97,7 +96,7 @@ class App extends React.Component {
 		}
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		this.getCurrentWeather()
 	}
 
@@ -131,7 +130,6 @@ class App extends React.Component {
 								daily={this.state.dailyWeatherInfo}
 								userinfo={this.state.userInfo}
 							/>
-							<img src={male.shortShirts}></img>
 						</div>
 					) : (
 						<div class="d-flex justify-content-center">
