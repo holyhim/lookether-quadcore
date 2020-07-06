@@ -1,22 +1,25 @@
-// TODO userinfo에 필요한 스키마정의
-
-// * username, email, gender, password
-
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    const userInfo = sequelize.define(
-      'userInfo',
-      { // email,password,username,mobile
-        //TODO : userinfo에 테이블에 필요한 스키마를 정의 하세요
-        email: DataTypes.STRING,
-        password: DataTypes.STRING,
-        username: DataTypes.STRING,
-        gender: DataTypes.STRING
-      },
-      {}
-    );
-    userInfo.associate = function(models) {
-      // associations can be defined here
-    };
-    return userInfo;
-  };
-  
+  const userInfo= sequelize.define(
+    'userinfo',
+    {
+      email: DataTypes.STRING,
+      password: DataTypes.STRING,
+      gender: DataTypes.STRING,
+      username: DataTypes.STRING
+    },
+    {}
+  );
+  userInfo.associate = function(models) {
+    // userInfo.hasMany(models.userImg, { foreignKey: 'id'})
+  }
+  return userInfo
+};
+
+// userInfo.associate = function(models) {
+//   // associations can be defined here
+//   userInfo.hasMany(models.userImg, { foreignKey: 'imgID'})
+// };

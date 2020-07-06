@@ -1,13 +1,11 @@
-// TODO: userImg에 필요한 스키마 정의
-
-//* imgId, like  --> database
-
-
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   const userImg = sequelize.define(
     'userImg',
-    { // email,password,username,mobile
-      //TODO : user 테이블에 필요한 스키마를 정의 하세요
+    {
       imgID: DataTypes.INTEGER,
       img: DataTypes.BLOB,
       like: DataTypes.INTEGER
@@ -16,7 +14,12 @@ module.exports = (sequelize, DataTypes) => {
   );
   userImg.associate = function(models) {
     // associations can be defined here
+    // userImg.belongsTo(models.userInfo, { foreignKey: 'imgID'})
   };
-  return userImg;
+  return userImg
 };
 
+// userImg.associate = function(models) {
+//   // associations can be defined here
+//   userImg.belongsTo(models.userInfo, { foreignKey: 'imgID'})
+// };
