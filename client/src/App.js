@@ -45,6 +45,7 @@ class App extends React.Component {
 		};
 		this.hiddenMain = this.hiddenMain.bind(this)
 		this.showMain = this.showMain.bind(this)
+		this.getCurrentWeather = this.getCurrentWeather.bind(this)
 	}
 	
 	showMain(){
@@ -78,7 +79,7 @@ class App extends React.Component {
 						lon: position.coords.longitude,
 					},
 					(data) => {
-						console.log(data.localityInfo.administrative[1].name)
+						console.log(data)
 						this.setState({location:{city: data.localityInfo.administrative[1].name}})
 					}
 				)
