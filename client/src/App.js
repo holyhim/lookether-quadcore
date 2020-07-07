@@ -1,21 +1,20 @@
-import React from "react"
-import { Link, Route, Switch, Redirect, Router } from "react-router-dom"
+import React, { useState } from "react";
+import { Link, Route, Switch, Redirect, Router } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.css"
-import { WEATHER_API_KEY } from "../weatherAPI_KEY/WeatherAPI_KEY"
-import { getWeatherData, reverseGeo } from "../getWeatherData"
-import { Toggle } from "./pages/Toggle"
-import { Mypage } from "./pages/Mypage"
-import Signin  from "./pages/Signin"
-import { Signup } from "./pages/Signup"
-import { Contentpage } from "./pages/Contentpage"
-import "./App.css"
+import "bootstrap/dist/css/bootstrap.css";
+import { WEATHER_API_KEY } from "../weatherAPI_KEY/WeatherAPI_KEY";
+import { getWeatherData, reverseGeo } from "../getWeatherData";
+import { Toggle } from "./pages/Toggle";
+import { Mypage } from "./pages/Mypage";
+import Signin from "./pages/Signin";
+import { Signup } from "./pages/Signup";
+import Contentpage from "./pages/Contentpage";
+import "./App.css";
 
 class App extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
-			showmain: true,
 			isLogin: false,
 			userInfo: {
 				email: "",
@@ -36,34 +35,26 @@ class App extends React.Component {
 			location: {
 				city: "",
 			},
-		}
-		this.hiddenMain = this.hiddenMain.bind(this)
-		this.showMain = this.showMain.bind(this)
-		this.getCurrentWeather = this.getCurrentWeather.bind(this)
-		this.handdleUserInfo = this.handdleUserInfo.bind(this)
-		this.handleLogin = this.handleLogin.bind(this)
+		};
+		this.getCurrentWeather = this.getCurrentWeather.bind(this);
+		this.handdleUserInfo = this.handdleUserInfo.bind(this);
+		this.handleLogin = this.handleLogin.bind(this);
 	}
 
 	handleLogin = () => {
-		this.setState({ isLogin: !this.state.isLogin })
+		this.setState({ isLogin: !this.state.isLogin });
 	};
 
-	handdleUserInfo(user){
+	handdleUserInfo(user) {
 		this.setState({
-			userInfo : user
-		})
-	}
-
-	showMain() {
-		this.setState({
-			showmain: true,
-		})
+			userInfo: user,
+		});
 	}
 
 	hiddenMain() {
 		this.setState({
 			showmain: false,
-		})
+		});
 	}
 	//var d = new Date(unixtime*1000); dt 변경
 	getCurrentWeather = () => {
@@ -86,9 +77,9 @@ class App extends React.Component {
 								max: data.daily[0].temp.max,
 							},
 							dailyWeatherInfo: data.daily.slice(1),
-						})
+						});
 					}
-				)
+				);
 				reverseGeo(
 					{
 						lat: position.coords.latitude,
@@ -97,23 +88,23 @@ class App extends React.Component {
 					(data) => {
 						this.setState({
 							location: { city: data.principalSubdivision },
-						})
+						});
 					}
-				)
-			})
+				);
+			});
 		} else {
-			alert("현재 위치 정보가 현재 브라우저에서 지원하지 않습니다.")
+			alert("현재 위치 정보가 현재 브라우저에서 지원하지 않습니다.");
 		}
-	}
+	};
 
 	componentWillMount() {
-		this.getCurrentWeather()
+		this.getCurrentWeather();
 	}
 
 	render() {
 		// const { isLogin , userInfo } = this.state;
-		const { isLogin } = this.state
-		const main = this.state.showmain
+		const { isLogin } = this.state;
+		const main = this.state.showmain;
 		return (
 			// title, location, signin, id=nav
 			// contentpage
@@ -149,15 +140,27 @@ class App extends React.Component {
 										/>
 									</div>
 								</div>
-							)
+							);
 						}}
 					/>
-					<Route path="/signin" render ={()=>{return <Signin isLogin={isLogin} userInfo={this.state.userInfo} handdleUserInfo = {this.handdleUserInfo} handleLogin={this.handleLogin}/>}} />
+					<Route
+						path="/signin"
+						render={() => {
+							return (
+								<Signin
+									isLogin={isLogin}
+									userInfo={this.state.userInfo}
+									handdleUserInfo={this.handdleUserInfo}
+									handleLogin={this.handleLogin}
+								/>
+							);
+						}}
+					/>
 					<Route path="/signup" component={Signup} />
 				</Switch>
 			</div>
-		)
+		);
 	}
 }
 
-export default App
+export default App;
