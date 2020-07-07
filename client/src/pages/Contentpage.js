@@ -26,18 +26,16 @@ class Contentpage extends React.Component {
 		this.state = {
 			img: null,
 		};
+		this.handleImgInput.bind(this);
 	}
 
 	handleImgInput(e) {
 		this.setState({
 			img: e.target.files[0],
 		});
-		console.log(this.state.img);
-		console.log(e.target.files[0]);
 	}
 
 	handleImgUpload() {
-		console.log(this.state.img);
 		const formData = new FormData();
 		formData.append("file", this.state.img);
 		return axios
@@ -65,7 +63,7 @@ class Contentpage extends React.Component {
 								this.handleImgInput(e);
 							}}
 						></input>
-						<button onClick={this.handleImgUpload()}>UPLOAD</button>
+						<button onClick={this.handleImgUpload.bind(this)}>UPLOAD</button>
 						<Todayclothes weather={this.props.weather.temp} />
 					</div>
 				</div>
