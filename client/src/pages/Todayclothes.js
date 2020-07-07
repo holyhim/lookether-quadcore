@@ -1,6 +1,7 @@
 import React from "react"
 import DefaultImg from "./DefaultImg"
 import { male } from "../../public/defaultClothes/male"
+
 // import { female } from "../public/defaultClothes/female"
 
 /*
@@ -24,16 +25,16 @@ const Todayclothes = (props) => {
 	if (props.weather >= 17) {
 		defaultClothes.shirts = male.shortShirts
 		defaultClothes.pants = male.shortPants
-	} else if (17 > props.weather || props.weather >= 10) {
+	} else if (17 > props.weather && props.weather >= 10) {
 		defaultClothes.shirts = male.longShirts
 		defaultClothes.pants = male.pants
-	} else if (10 >= props.weather) {
+	} else if (10 >= props.weather && props.weather !== "") {
 		defaultClothes.shirts = male.jacket
 		defaultClothes.pants = male.pants
 	}
 	return (
-		<div>
-			<DefaultImg defaultClothes={defaultClothes} />
+		<div className="todayclothes">
+			<DefaultImg default={defaultClothes} />
 		</div>
 	)
 }
