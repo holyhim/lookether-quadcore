@@ -1,16 +1,13 @@
 import React from "react"
-import { Link, Route, BrowserRouter, Switch, Router } from "react-router-dom"
+import { Link, Route, Switch, Redirect, Router } from "react-router-dom"
 
 import "bootstrap/dist/css/bootstrap.css"
 import { WEATHER_API_KEY } from "../weatherAPI_KEY/WeatherAPI_KEY"
 import { getWeatherData, reverseGeo } from "../getWeatherData"
 import { Toggle } from "./pages/Toggle"
-import { Currentweather } from "./pages/Currentweather"
 import { Mypage } from "./pages/Mypage"
-import { Signin } from "./pages/Signin"
+import Signin  from "./pages/Signin"
 import { Signup } from "./pages/Signup"
-import { Todayclothes } from "./pages/Todayclothes"
-import { Weekweather } from "./pages/Weekweather"
 import { Contentpage } from "./pages/Contentpage"
 import "./App.css"
 
@@ -43,6 +40,18 @@ class App extends React.Component {
 		this.hiddenMain = this.hiddenMain.bind(this)
 		this.showMain = this.showMain.bind(this)
 		this.getCurrentWeather = this.getCurrentWeather.bind(this)
+		this.handdleUserInfo = this.handdleUserInfo.bind(this)
+		this.handleLogin = this.handleLogin.bind(this)
+	}
+
+	handleLogin = () => {
+		this.setState({ isLogin: !this.state.isLogin })
+	};
+
+	handdleUserInfo(user){
+		this.setState({
+			userInfo : user
+		})
 	}
 
 	showMain() {
@@ -106,43 +115,46 @@ class App extends React.Component {
 		const { isLogin } = this.state
 		const main = this.state.showmain
 		return (
-			<div className="App">
-				<BrowserRouter>
-					<div id="nav" class="d-flex">
-						<Link to="/" id="home" class="mr-auto p-2" onClick={this.showMain}>
-							LookEther
-						</Link>
-						<Link
-							to="/signin"
-							type="button"
-							class="P2 btn btn-light btn-lg"
-							onClick={this.hiddenMain}
-						>
-							Sign in
-						</Link>
+			// title, location, signin, id=nav
+			// contentpage
+			// weekly
+			// if it clicks signin, nav exists, signin box appears instead of contentpage
+			// if it successes signin, contentpage appears back
+			// if it doesn't have id, signup page appears
+			// if it's done signup, signin page appears back
+			<div>
+				<div id="nav">
+					<div>
+						<Link to="/">LookEther</Link>
 					</div>
-					<div class="d-flex justify-content-center">
+					<div>
 						<Toggle city={this.state.location.city} />
 					</div>
-					{main ? (
-						<div class="d-flex justify-content-center">
-							<Contentpage
-								weather={this.state.currentWeatherInfo}
-								daily={this.state.dailyWeatherInfo}
-								userinfo={this.state.userInfo}
-							/>
-						</div>
-					) : (
-						<div class="d-flex justify-content-center">
-							<Link to="/signin"></Link>
-						</div>
-					)}
-					<Switch>
-						<Route exact path="/"></Route>
-						<Route path="/signin" component={Signin}></Route>
-						<Route path="/signup" component={Signup}></Route>
-					</Switch>
-				</BrowserRouter>
+					<div>
+						<Link to="./signin">Signin</Link>
+					</div>
+				</div>
+				<Switch>
+					<Route
+						exact
+						path="/"
+						render={() => {
+							return (
+								<div>
+									<div>
+										<Contentpage
+											weather={this.state.currentWeatherInfo}
+											daily={this.state.dailyWeatherInfo}
+											userinfo={this.state.userInfo}
+										/>
+									</div>
+								</div>
+							)
+						}}
+					/>
+					<Route path="/signin" render ={()=>{return <Signin isLogin={isLogin} userInfo={this.state.userInfo} handdleUserInfo = {this.handdleUserInfo} handleLogin={this.handleLogin}/>}} />
+					<Route path="/signup" component={Signup} />
+				</Switch>
 			</div>
 		)
 	}

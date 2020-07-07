@@ -25,11 +25,11 @@ const Contentpage = (props) => (
 			<div class="cur-weather">
 				<Currentweather weather={props.weather} />
 			</div>
-			<div class="clothe">
+			<div class="row">
 				<Todayclothes weather={props.weather.temp} />
 			</div>
 		</div>
-		<div class="row">
+		<div class="daily">
 			<div class="weekweather">
 				{props.daily.map((data) => (
 					<Weekweather
