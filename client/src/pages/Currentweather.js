@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 /*
 props = {
@@ -15,10 +15,12 @@ props = {
 */
 
 const Currentweather = (props) => {
-	return (
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">Currentweather</h5>
+	return !props.weather ? (
+		<div>Loading</div>
+	) : (
+		<div className="card">
+			<div className="card-body">
+				<h5 className="card-title">Currentweather</h5>
 				<img
 					id="weather-icon"
 					src={`http://openweathermap.org/img/wn/${props.weather.icon}.png`}
@@ -30,7 +32,7 @@ const Currentweather = (props) => {
 				<div>최저 기온: {props.weather.min}</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export { Currentweather }
+export { Currentweather };

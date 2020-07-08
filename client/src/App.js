@@ -1,15 +1,19 @@
-import React, { useState } from "react";
-import { Link, Route, Switch, Redirect, Router } from "react-router-dom";
-
+import React from "react";
+import { Link, Route, Switch } from "react-router-dom";
+import dotenv from "dotenv";
+import path from "path";
 import "bootstrap/dist/css/bootstrap.css";
-import { WEATHER_API_KEY } from "../weatherAPI_KEY/WeatherAPI_KEY";
 import { getWeatherData, reverseGeo } from "../getWeatherData";
 import { Toggle } from "./pages/Toggle";
-import { Mypage } from "./pages/Mypage";
 import Signin from "./pages/Signin";
 import { Signup } from "./pages/Signup";
 import Contentpage from "./pages/Contentpage";
+// import { WEATHER_API_KEY } from "../config/config";
 import "./App.css";
+
+// const WEATHER_API_KEY = process.env.REACT_APP_WHEATHER_API_KEY;
+
+dotenv.config({ path: path.join(__dirname, "path/to/.env") });
 
 class App extends React.Component {
 	constructor(props) {
@@ -64,7 +68,7 @@ class App extends React.Component {
 					{
 						lat: position.coords.latitude,
 						lon: position.coords.longitude,
-						key: WEATHER_API_KEY,
+						key: process.env.REACT_APP_WEATHER_API_KEY,
 					},
 					(data) => {
 						this.setState({
@@ -97,14 +101,13 @@ class App extends React.Component {
 		}
 	};
 
-	componentWillMount() {
+	componentDidMount() {
 		this.getCurrentWeather();
 	}
 
 	render() {
 		// const { isLogin , userInfo } = this.state;
 		const { isLogin } = this.state;
-		const main = this.state.showmain;
 		return (
 			// title, location, signin, id=nav
 			// contentpage
