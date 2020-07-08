@@ -2,6 +2,8 @@ import React from "react"
 import DefaultImg from "./DefaultImg"
 import { male } from "../../public/defaultClothes/male"
 
+import "./Todayclothes.css"
+
 // import { female } from "../public/defaultClothes/female"
 
 /*
@@ -33,8 +35,16 @@ const Todayclothes = (props) => {
 		defaultClothes.pants = male.pants
 	}
 	return (
-		<div className="todayclothes">
-			<DefaultImg default={defaultClothes} />
+		<div id="todayclothes" class="card">
+			<div class="card-body">
+				<div class="d-flex justify-content-between">
+				<div>Upload</div>
+				<div>Menu</div>
+				</div>
+				<div id="cloth-icon" >
+				<DefaultImg default={defaultClothes} />
+				</div>
+			</div>
 		</div>
 	)
 }

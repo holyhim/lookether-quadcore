@@ -1,0 +1,28 @@
+div{
+    font-weight: lighter;
+}
+
+#cardbox{
+    width: 580px;
+    height: 290px;
+}
+
+#weather-icon{
+    width: 100px;
+    height: 100px;
+}
+
+#cur{
+    padding: 10px 0 0 50px;
+    font-size: 50px;
+    text-align: center;
+    font-weight: lighter;
+}
+
+.row{
+    margin-top: 25px;
+    margin-left: 25px;
+}
+.row ~ .row{
+    font-size: 25px;
+}

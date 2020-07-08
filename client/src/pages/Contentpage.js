@@ -56,29 +56,29 @@ class Contentpage extends React.Component {
 						<Currentweather weather={this.props.weather} />
 					</div>
 					<div class="row">
-						<input
+					<Todayclothes weather={this.props.weather.temp} />
+						{/* <input
 							type="file"
 							name="file"
 							onChange={(e) => {
 								this.handleImgInput(e);
 							}}
 						></input>
-						<button onClick={this.handleImgUpload.bind(this)}>UPLOAD</button>
-						<Todayclothes weather={this.props.weather.temp} />
+						<button onClick={this.handleImgUpload.bind(this)}>UPLOAD</button> */}
 					</div>
 				</div>
-				<div class="daily">
-					<div class="weekweather">
+					<div>
 						{this.props.daily.map((data) => (
-							<Weekweather
+							<div  class="weekweather">
+								<Weekweather
 								key={uniqid(`${data.weather[0].id}-`)}
 								weather_id={data.weather[0].id}
 								max={data.temp.max}
 								min={data.temp.min}
 								icon={data.weather[0].icon}
 							/>
+							</div>
 						))}
-					</div>
 				</div>
 			</div>
 		);

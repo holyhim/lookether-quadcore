@@ -1,5 +1,5 @@
 .cur-weather {
-	margin: 25px 20px 40px 40px;
+	margin: 25px 150px 40px 150px;
 }
 .cloth {
 	margin: 25px 40px 40px 20px;
@@ -14,10 +14,7 @@
 	max-height: 100px;
 }
 
-.todayclothes {
-	box-sizing: border-box;
-	position: relative;
-	background-color: black;
-	max-width: 600px;
-	max-height: 600px;
+.weekweather{
+	width: 230px;
+    height: 300px;
 }

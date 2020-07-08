@@ -1,5 +1,5 @@
 import React from "react"
-
+import "./Currentweather.css"
 /*
 props = {
   weatherInfo:{
@@ -16,18 +16,23 @@ props = {
 
 const Currentweather = (props) => {
 	return (
-		<div class="card">
+		<div id="cardbox" class="card" >
 			<div class="card-body">
-				<h5 class="card-title">Currentweather</h5>
+				<div class="row">
 				<img
 					id="weather-icon"
 					src={`http://openweathermap.org/img/wn/${props.weather.icon}.png`}
-					alt=""
-				></img>
-				<div>현재 기온: {props.weather.temp}</div>
-				<div>체감 온도: {props.weather.feelslike}</div>
-				<div>최고 기온: {props.weather.max}</div>
-				<div>최저 기온: {props.weather.min}</div>
+					alt=""/>
+				<div id="cur" class="col">{props.weather.temp}℃</div>
+				</div>
+				<div class="row">
+				<div class="col">최고 온도 {props.weather.max}℃</div>
+				<div class="col">최저 온도 {props.weather.min}℃</div>
+				</div>
+				<div class="row">
+				<div class="col">강수량  {props.weather.rain}0mm</div>
+				<div class="col">체감 온도 {props.weather.feelslike}℃</div>
+				</div>
 			</div>
 		</div>
 	)

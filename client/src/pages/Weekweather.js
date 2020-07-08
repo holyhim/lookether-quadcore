@@ -1,4 +1,5 @@
 import React from "react"
+import "./Weekweather.css"
 
 /*
 props = {
@@ -11,13 +12,16 @@ props = {
 */
 
 const Weekweather = (props) => (
-	<div>
+
+		<div id="week" class="card">
+		<div class="card-body">
 		<img
 			src={`http://openweathermap.org/img/wn/${props.icon}.png`}
 			alt=""
 		></img>
 		<div>최고 기온: {props.max}</div>
 		<div>최저 기온: {props.min}</div>
+		</div>
 	</div>
 )
 export { Weekweather }
