@@ -1,7 +1,5 @@
-import React from 'react';
+import React from "react";
 
-const Toggle = ({city}) => (
-  <div class="display-4">{city}</div>
-)
+const Toggle = ({ city }) => <div className="display-4">{city}</div>;
 
-export  {Toggle};
+export { Toggle };

@@ -1,8 +1,5 @@
 .cur-weather {
-	margin: 25px 150px 40px 150px;
-}
-.cloth {
-	margin: 25px 40px 40px 20px;
+	margin:0 50px;
 }
 
 .default {
@@ -14,7 +11,49 @@
 	max-height: 100px;
 }
 
-.weekweather{
-	width: 230px;
-    height: 300px;
+.daily{
+	display: inline-block;
+	width: 180px;
+	height: 300px;
+	margin: 50px 25px;
+	
 }
+.upload-btn-wrapper {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+  }
+  
+  .btn {
+	border: 2px solid gray;
+	color: gray;
+	background-color: white;
+	padding: 8px 20px;
+	border-radius: 8px;
+	font-size: 20px;
+	font-weight: bold;
+  }
+  
+  .upload-btn-wrapper {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+  }
+  
+  .btn {
+	border: 2px solid gray;
+	color: gray;
+	background-color: white;
+	padding: 8px 20px;
+	border-radius: 8px;
+	font-size: 20px;
+	font-weight: bold;
+  }
+  
+  #fileupload {
+	font-size: 100px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+  }

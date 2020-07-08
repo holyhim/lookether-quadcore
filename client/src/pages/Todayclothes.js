@@ -35,17 +35,9 @@ const Todayclothes = (props) => {
 		defaultClothes.pants = male.pants
 	}
 	return (
-		<div id="todayclothes" class="card">
-			<div class="card-body">
-				<div class="d-flex justify-content-between">
-				<div>Upload</div>
-				<div>Menu</div>
-				</div>
 				<div id="cloth-icon" >
 				<DefaultImg default={defaultClothes} />
 				</div>
-			</div>
-		</div>
 	)
 }
 

@@ -2,12 +2,13 @@ div{
     font-weight: lighter;
 }
 
-#cardbox{
+.card{
     width: 580px;
     height: 290px;
 }
 
 #weather-icon{
+    margin-left: 20px;
     width: 100px;
     height: 100px;
 }
