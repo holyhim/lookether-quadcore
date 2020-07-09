@@ -122,7 +122,14 @@ class App extends React.Component {
 						<Link to="/" className="h3">LookEther</Link>
 						<Toggle city={this.state.location.city} />
 						<div>
-		<Link to="./signin" type="button" className="P2 btn btn-light btn-lg">{isLogin ? this.state.userInfo.username : 'Signin' }</Link>
+							<Link to="./signin">
+								{isLogin ? (
+								<div>
+								<div type="button" className="P2 btn btn-light btn-lg">Mypage</div>,
+								<div type="button" className="P2 btn btn-light btn-lg">Signout</div>
+								</div>)
+								: <div type="button" className="P2 btn btn-light btn-lg">Signin</div> }
+							</Link>
 						</div>
 				</div>
 				<Switch>
