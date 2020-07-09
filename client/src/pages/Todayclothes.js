@@ -1,23 +1,7 @@
 import React from "react"
 import DefaultImg from "./DefaultImg"
 import { male } from "../../public/defaultClothes/male"
-
 import "./Todayclothes.css"
-
-// import { female } from "../public/defaultClothes/female"
-
-/*
-props = {
-  weather:{
-    icon: "",
-		temp: "",
-		feelslike: "",
-		min: "",
-		max: "",
-		rain: "",
-  }
-}
-*/
 
 const Todayclothes = (props) => {
 	let defaultClothes = {

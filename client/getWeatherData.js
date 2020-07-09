@@ -1,5 +1,4 @@
 import axios from "axios"
-// import { WEATHER_API_KEY } from "./weatherAPI_KEY/WeatherAPI_KEY";
 
 const getWeatherData = ({ lat, lon, key }, callback) => {
 	axios

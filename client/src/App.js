@@ -116,12 +116,13 @@ class App extends React.Component {
 			// if it successes signin, contentpage appears back
 			// if it doesn't have id, signup page appears
 			// if it's done signup, signin page appears back
+			
 			<div>
 				<div id="nav" className="d-flex justify-content-between">
 						<Link to="/" className="h3">LookEther</Link>
 						<Toggle city={this.state.location.city} />
 						<div>
-						<Link to="./signin" type="button" className="P2 btn btn-light btn-lg">Signin</Link>
+		<Link to="./signin" type="button" className="P2 btn btn-light btn-lg">{isLogin ? this.state.userInfo.username : 'Signin' }</Link>
 						</div>
 				</div>
 				<Switch>

@@ -8,19 +8,6 @@ import "./Contentpage.css";
 
 const uniqid = require("uniqid");
 
-/*
-props = {
-  weatherInfo:{
-    icon: "",
-		temp: "",
-		feelslike: "",
-		min: "",
-		max: "",
-		rain: "",
-  }
-}
-*/
-
 class Contentpage extends React.Component {
 	constructor(props) {
 		super(props);
@@ -42,15 +29,13 @@ class Contentpage extends React.Component {
 		// If file selected
 		if (this.state.img) {
 			data.append("file", this.state.img, this.state.img.name);
-			axios
-				.post("http://localhost:4000/upload", data, {
+			axios.post("http://localhost:4000/upload", data, {
 					headers: {
 						accept: "application/json",
 						"Accept-Language": "en-US,en;q=0.8",
 						"Content-Type": `multipart/form-data; boundary=${data._boundary}`,
 					},
-				})
-				.then((response) => {
+				}).then((response) => {
 					if (200 === response.status) {
 						// If file size is larger than expected.
 						if (response.data.error) {
@@ -102,16 +87,16 @@ class Contentpage extends React.Component {
 					</div>
 					<div className="card">
 						<div className="card-body">
-						<div className="upload-btn-wrapper">
-						<button onClick={this.handleImgUpload.bind(this)} className="btn">UPLOAD</button>
-						<input id="fileupload"
-							type="file"
-							name="file"
-							onChange={(e) => {
-								this.handleImgInput(e);
-							}}/>
-						<div><Todayclothes weather={this.props.weather.temp} /></div>
-					</div>
+							<div className="upload-btn-wrapper">
+								<button onClick={this.handleImgUpload.bind(this)} className="btn">UPLOAD</button>
+									<input id="fileupload"
+										type="file"
+										name="file"
+										onChange={(e) => {
+											this.handleImgInput(e);
+										}}/>
+										<div><Todayclothes weather={this.props.weather.temp} /></div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -124,12 +109,14 @@ class Contentpage extends React.Component {
 								weather={this.props.weather.temp}
 								max={data.temp.max}
 								min={data.temp.min}
-								icon={data.weather[0].icon}/>
+								icon={data.weather[0].icon}
+							/>
 							</div>
 						))}
-					</div>
+				</div>
 			</div>
 		);
 	}
 }
+
 export default Contentpage;
