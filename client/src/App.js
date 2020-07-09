@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch, Redirect } from "react-router-dom";
 import dotenv from "dotenv";
 import path from "path";
 import "bootstrap/dist/css/bootstrap.css";
@@ -8,6 +8,7 @@ import { Toggle } from "./pages/Toggle";
 import Signin from "./pages/Signin";
 import { Signup } from "./pages/Signup";
 import Contentpage from "./pages/Contentpage";
+import {Signout} from "./pages/Signout"
 import axios from "axios";
 
 // import { WEATHER_API_KEY } from "../config/config";
@@ -48,12 +49,18 @@ class App extends React.Component {
 		this.handleLogout = this.handleLogout.bind(this);
 	}
 
+
+
+
 	handleLogin = () => {
-		this.setState({ isLogin: !this.state.isLogin });
+		this.setState({ isLogin: true });
 	};
 
 	handleLogout = () => {
-		axios.post("http://localhost:4000/signout").then(
+		this.setState({ isLogin: false });
+		localStorage.clear()
+		return(
+			<Redirect path="*" to="/"/>
 		)
 	};
 
@@ -108,9 +115,16 @@ class App extends React.Component {
 			alert("현재 위치 정보가 현재 브라우저에서 지원하지 않습니다.");
 		}
 	};
+	
 
 	componentDidMount() {
 		this.getCurrentWeather();
+		let id = localStorage.getItem('userInfo')
+		if(id){
+			this.handleLogin()
+		}else{
+			this.handleLogout()
+		}
 	}
 
 	render() {
@@ -130,14 +144,13 @@ class App extends React.Component {
 						<Link to="/" className="h3">LookEther</Link>
 						<Toggle city={this.state.location.city} />
 						<div>
-							<Link to="./signin">
+
 								{isLogin ? (
 								<div>
 								<div type="button" className="P2 btn btn-light btn-lg">Mypage</div>,
 								<div type="button" className="P2 btn btn-light btn-lg" onClick ={this.handleLogout}>Signout</div>
 								</div>)
-								: <div type="button" className="P2 btn btn-light btn-lg">Signin</div> }
-							</Link>
+								: <Link to ="/signin" type="button" className="P2 btn btn-light btn-lg">Signin</Link>}
 						</div>
 				</div>
 				<Switch>
@@ -172,6 +185,7 @@ class App extends React.Component {
 						}}
 					/>
 					<Route path="/signup" component={Signup} />
+					<Redirect path="*" to="/"/>
 				</Switch>
 			</div>
 		);

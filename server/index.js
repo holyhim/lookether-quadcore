@@ -11,6 +11,7 @@ const uuid = require('uuid/v4')
 const imgController = require('./imgController')
 const config = require('./config/config')
 const AWS = require('aws-sdk')
+const MySQLStore = require('express-mysql-session')(session);
 
 require("./models");
 
@@ -31,18 +32,24 @@ let s3 = new AWS.S3({
 const port = 4000;
 
 
-app.use(
-  session({
-    secret: "QuadCore",
-    resave: false,
-    saveUninitialized: true,
+app.use(session({
+  secret: 'spemnv2395@#lsore*&@#oso3$%^#&#$@#$!',
+  resave: false,
+  saveUninitialized: true,
+  maxAge: 20000,
+  store: new MySQLStore({
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: process.env.MYSQL_PASSWORD,
+    database: 'user'
   })
-);
+}));
 
 // !
 app.use(
   cors({
-    origin: ["http://qccc.s3-website.ap-northeast-2.amazonaws.com"],
+    origin: ["http://localhost:3000"],
     methods: ["GET", "POST"],
     credentials: true,
   })
