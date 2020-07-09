@@ -8,6 +8,8 @@ import { Toggle } from "./pages/Toggle";
 import Signin from "./pages/Signin";
 import { Signup } from "./pages/Signup";
 import Contentpage from "./pages/Contentpage";
+import axios from "axios";
+
 // import { WEATHER_API_KEY } from "../config/config";
 import "./App.css";
 
@@ -43,10 +45,16 @@ class App extends React.Component {
 		this.getCurrentWeather = this.getCurrentWeather.bind(this);
 		this.handdleUserInfo = this.handdleUserInfo.bind(this);
 		this.handleLogin = this.handleLogin.bind(this);
+		this.handleLogout = this.handleLogout.bind(this);
 	}
 
 	handleLogin = () => {
 		this.setState({ isLogin: !this.state.isLogin });
+	};
+
+	handleLogout = () => {
+		axios.post("http://localhost:4000/signout").then(
+		)
 	};
 
 	handdleUserInfo(user) {
@@ -80,7 +88,7 @@ class App extends React.Component {
 								min: data.daily[0].temp.min,
 								max: data.daily[0].temp.max,
 							},
-							dailyWeatherInfo: data.daily.slice(1),
+							dailyWeatherInfo: data.daily.slice(1,6),
 						});
 					}
 				);
@@ -126,7 +134,7 @@ class App extends React.Component {
 								{isLogin ? (
 								<div>
 								<div type="button" className="P2 btn btn-light btn-lg">Mypage</div>,
-								<div type="button" className="P2 btn btn-light btn-lg">Signout</div>
+								<div type="button" className="P2 btn btn-light btn-lg" onClick ={this.handleLogout}>Signout</div>
 								</div>)
 								: <div type="button" className="P2 btn btn-light btn-lg">Signin</div> }
 							</Link>

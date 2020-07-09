@@ -30,6 +30,7 @@ class Signin extends React.Component {
 								.post("http://localhost:4000/signin", this.state)
 								.then((res) => {
 									if (res.status === 200) {
+										console.log(res.data)
 										this.props.handdleUserInfo(res.data);
 										this.props.handleLogin();
 									} else {

@@ -1,6 +1,6 @@
 import React from "react"
 import DefaultImg from "./DefaultImg"
-import { male } from "../../public/defaultClothes/male"
+import {clothesAll}  from "../../public/defaultClothes/clothesAll"
 import "./Todayclothes.css"
 
 const Todayclothes = (props) => {
@@ -8,15 +8,25 @@ const Todayclothes = (props) => {
 		shirts: "",
 		pants: "",
 	}
-	if (props.weather >= 17) {
-		defaultClothes.shirts = male.shortShirts
-		defaultClothes.pants = male.shortPants
-	} else if (17 > props.weather && props.weather >= 10) {
-		defaultClothes.shirts = male.longShirts
-		defaultClothes.pants = male.pants
-	} else if (10 >= props.weather && props.weather !== "") {
-		defaultClothes.shirts = male.jacket
-		defaultClothes.pants = male.pants
+	if (props.weather >= 22) {
+		defaultClothes.etc = clothesAll.summerhat
+		defaultClothes.shirts = clothesAll.shortShirts
+		defaultClothes.pants = clothesAll.shortPants
+	} else if (22 > props.weather && props.weather >=17) {
+		defaultClothes.shortShirts = clothesAll.shortShirts
+		defaultClothes.pants = clothesAll.pants
+	} else if (17>= props.weather && props.weather >=12) {
+		defaultClothes.etc = clothesAll.cardigan
+		defaultClothes.shirts = clothesAll.longShirts
+		defaultClothes.pants = clothesAll.pants
+	} else if (12>= props.weather && props.weather >=9) {
+		defaultClothes.etc = clothesAll.jacket
+		defaultClothes.shirts = clothesAll.hoodie
+		defaultClothes.pants = clothesAll.pants
+	} else if (9 >= props.weather && props.weather !== "") {
+		defaultClothes.etc = clothesAll.wintrtjacket
+		defaultClothes.shirts = clothesAll.hoodie
+		defaultClothes.pants = clothesAll.pants
 	}
 	return (
 				<div id="cloth-icon" >
