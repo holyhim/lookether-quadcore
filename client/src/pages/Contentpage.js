@@ -95,7 +95,8 @@ class Contentpage extends React.Component {
 										onChange={(e) => {
 											this.handleImgInput(e);
 										}}/>
-										<div><Todayclothes weather={this.props.weather.temp} /></div>
+										<button className="btnmenu"> Default</button>
+									<div><Todayclothes weather={this.props.weather.temp} /></div>
 							</div>
 						</div>
 					</div>
