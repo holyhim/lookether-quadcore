@@ -12,7 +12,7 @@ module.exports = {
       if(result){
         var {id} = result;
         session.userid = id;
-        res.status(200).send({id}); // 있으면 200
+        res.status(200).send(result); // 있으면 200
       } else{
         res.status(404).send('아이디와 비밀번호를 확인해주세요'); // 없으면 404 & unvalid user
       }
