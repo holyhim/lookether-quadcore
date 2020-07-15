@@ -2,7 +2,7 @@
 name: Task Card
 about: 'Task 카드 생성시 사용되는 template 입니다. '
 title: "[Task] 작업 내용을 작성해 주세요"
-labels: Task
+labels: ''
 assignees: ''
 
 ---
@@ -14,7 +14,7 @@ assignees: ''
 #### Job Description
 >  작업 내용을 적어주세요
 
-(여기)
+(here)
 
 #### Todo 
 >  해당 작업이 완성되기 위해서 완료되어야 하는 작업 리스트를 적어주세요 
@@ -27,16 +27,14 @@ assignees: ''
 
 ##### estimated / consumed 
 
-Task Card 하나의 estimated time / consumed time 이 최대 3h 이 넘어가지 않게 작성해 주시기 바랍니다. 
+Task Card 하나의 estimated time / consumed time 을 작성해주세요.
 
 ##### Labelling
 
 - estimated time :  `E:2h` 
-- consumed time :  `C:1h`  
 - page : `Mypage`, `Index` ...
 - position : `Clinet`, `Server` 
 - sprint : `Sprint`
-- urgency : `High`, `Middle`, `Low`
 
 ##### Status 관리
 
