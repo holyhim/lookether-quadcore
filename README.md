@@ -70,12 +70,27 @@
 
 # 프로젝트 Preview
 
+- main page에서 회원가입 화면 이동
+
 ![메인 페이지에서 회원가입 이동](https://user-images.githubusercontent.com/61106972/95743496-d1f09a00-0ccc-11eb-8dfb-09d59019fc0e.gif)
+
+- 회원가입 화면
+
 ![회원가입](https://user-images.githubusercontent.com/61106972/95743513-d6b54e00-0ccc-11eb-905c-007698b126d7.gif)
+
+- login 화면
+
 ![unnamed](https://user-images.githubusercontent.com/61106972/95743518-d7e67b00-0ccc-11eb-85f5-81eb45b0d539.gif)
+
+- 새로고침 및 logout
+
 ![새로고침 및 로그아웃](https://user-images.githubusercontent.com/61106972/95743508-d4eb8a80-0ccc-11eb-99f9-57dee394ac0c.gif)
+
+- user 개인 image upload
+
 ![파일업로드](https://user-images.githubusercontent.com/61106972/95743511-d61cb780-0ccc-11eb-9a96-78583c2a05b2.gif)
 
 - Back-end
 업로드한 image s3에 저장된 상태입니다.
+
 ![s3upload](https://user-images.githubusercontent.com/61106972/95743515-d74de480-0ccc-11eb-920e-cb808dd8d7d7.gif)
