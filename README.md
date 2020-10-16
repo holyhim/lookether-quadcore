@@ -2,18 +2,20 @@
 현재 위치의 날씨 정보를 제공하고 해당 날씨에 따라 의류 정보를 추천하는 웹 프로젝트입니다. 
 ![image](https://user-images.githubusercontent.com/61106972/95744021-aa4e0180-0ccd-11eb-8b4a-c5d4f5bb0a99.png)
 
+# Stack
+### Front-end : React, Bootstrap, Axios
+### Tools :  Github, Notion, Slack
 
-
-# ❗️Schema Design
+# Schema Design
 
 <img width="895" alt="스크린샷 2020-07-01 오후 5 53 26" src="https://user-images.githubusercontent.com/46562138/86224895-6c1c4e80-bbc4-11ea-8091-d0ad5f42cf51.png">
 
-# ❗️Task Flow
+# Task Flow
 
 
 <img width="426" alt="스크린샷 2020-07-01 오후 4 13 09" src="https://user-images.githubusercontent.com/46562138/86214942-df1ec880-bbb6-11ea-9648-4cde9200ed0c.png"></img>
 
-# ❗️WireFrame
+# WireFrame
 
 
 <div>
@@ -70,27 +72,27 @@
 
 # 프로젝트 Preview
 
-- main page에서 회원가입 화면 이동
+### - main page에서 회원가입 화면 이동
 
 ![메인 페이지에서 회원가입 이동](https://user-images.githubusercontent.com/61106972/95743496-d1f09a00-0ccc-11eb-8dfb-09d59019fc0e.gif)
 
-- 회원가입 화면
+### - 회원가입 화면
 
 ![회원가입](https://user-images.githubusercontent.com/61106972/95743513-d6b54e00-0ccc-11eb-905c-007698b126d7.gif)
 
-- login 화면
+### - login 화면
 
 ![unnamed](https://user-images.githubusercontent.com/61106972/95743518-d7e67b00-0ccc-11eb-85f5-81eb45b0d539.gif)
 
-- 새로고침 및 logout
+### - 새로고침 및 logout
 
 ![새로고침 및 로그아웃](https://user-images.githubusercontent.com/61106972/95743508-d4eb8a80-0ccc-11eb-99f9-57dee394ac0c.gif)
 
-- user 개인 image upload
+### - user 개인 image upload
 
 ![파일업로드](https://user-images.githubusercontent.com/61106972/95743511-d61cb780-0ccc-11eb-9a96-78583c2a05b2.gif)
 
-- Back-end
+### - Back-end s3 upload image 확인
 업로드한 image s3에 저장된 상태입니다.
 
 ![s3upload](https://user-images.githubusercontent.com/61106972/95743515-d74de480-0ccc-11eb-920e-cb808dd8d7d7.gif)
