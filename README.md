@@ -1,6 +1,6 @@
 # LookEther
 ### 2020.06 ~ 2020.07 (2주)
-### Code States, 팀 프로젝트
+### Code States, 팀 프로젝트 (4인)
 
 ### 0. 소개
 - Code States에서 진행한 팀 프로젝트 입니다. 
