@@ -6,8 +6,8 @@
   - Code States에서 진행한 팀 프로젝트 입니다. 
   
   #### 0-1. 팀 구성
-    - Front-end: 2명
-    - Back-end: 2명
+  - Front-end: 2명
+  - Back-end: 2명
 
 ### 1. Project 소개
 
@@ -19,9 +19,9 @@
     실생활에서 편리하게 사용가능하지 않을까? 하는 생각으로부터 출발하여 프로젝트를 시작하게 되었습니다.
 
     #### 1-1. Stack
-      - Front-end : React, Bootstrap, Axios
-      - Tools :  Github, Notion, Slack
-
+      - **Language** : Javascript, HTML/CSS
+      - **Library** : React.js, Bootstrap, Axios
+      - **Tools** :  Github, Notion, Slack, Zoom
 
     #### 1-2. Task Flow
       <img width="426" alt="스크린샷 2020-07-01 오후 4 13 09" src="https://user-images.githubusercontent.com/46562138/86214942-df1ec880-bbb6-11ea-9648-4cde9200ed0c.png"></img>
@@ -59,6 +59,3 @@
   - #### user 개인 image upload
 
     ![파일업로드](https://user-images.githubusercontent.com/61106972/95743511-d61cb780-0ccc-11eb-9a96-78583c2a05b2.gif)
-
-  - #### Back-end, s3 upload image 확인
-      ![s3upload](https://user-images.githubusercontent.com/61106972/95743515-d74de480-0ccc-11eb-920e-cb808dd8d7d7.gif)
