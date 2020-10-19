@@ -3,8 +3,8 @@
 ### Code States, 팀 프로젝트
 
 ### 0. 소개
-  - Code States에서 진행한 팀 프로젝트 입니다. 
-  
+- Code States에서 진행한 팀 프로젝트 입니다. 
+
   #### 0-1. 팀 구성
   - Front-end: 2명
   - Back-end: 2명
