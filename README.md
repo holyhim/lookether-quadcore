@@ -1,29 +1,30 @@
-# Intro
-우리는 날씨에 관한 정보를 여러 매체를 통해서 손쉽게 얻을 수 있습니다.
+# LookEther
+### 2020.06 ~ 2020.07 (2주)
+### Code States, 팀 프로젝트
 
-그러나 날씨에 따른 적합한 복장을 쉽게 떠올리기란 그리 쉬운 일이 아닙니다.
+### 0. 소개
+  - Code States에서 진행한 팀 프로젝트 입니다. 
+  
+  #### 0-1. 팀 구성
+    - Front-end: 2명
+    - Back-end: 2명
 
-예를 들어, 현재 기온이 14도라면, 여러분은 적합한 복장을 쉽게 떠올릴 수 있으신가요?
+### 1. Project 소개
 
-쉽게 떠 올릴 수도 있겠지만 그렇지 않은 사람들을 위해 LookEther 가 날씨에 대한 적합한 복장을
+- 우리는 날씨에 관한 정보를 여러 매체를 통해서 손쉽게 얻을 수 있습니다.
+  그러나 날씨에 따른 적합한 복장을 쉽게 떠올리기란 그리 쉬운 일이 아닙니다.
+  예를 들어, 현재 기온이 14도라면, 여러분은 적합한 복장을 쉽게 떠올릴 수 있으신가요?
+  쉽게 떠 올릴 수도 있겠지만 그렇지 않은 사람들을 위해 LookEther 가 날씨에 대한 적합한 복장을
+  추위를 많이 타는 사람, 그렇지 않은 사람들을 위해 옷을 추천을 해준다면,
+  실생활에서 편리하게 사용가능하지 않을까? 하는 생각으로부터 출발하여 프로젝트를 시작하게 되었습니다.
 
-추위를 많이 타는 사람, 그렇지 않은 사람들을 위해 옷을 추천을 해준다면,
-
-실생활에서 편리하게 사용가능하지 않을까? 하는 생각으로부터 출발하여 프로젝트를 시작하게 되었습니다.
-![image](https://user-images.githubusercontent.com/61106972/95744021-aa4e0180-0ccd-11eb-8b4a-c5d4f5bb0a99.png)
-
-# Stack
-### Front-end : React, Bootstrap, Axios
-### Tools :  Github, Notion, Slack
-
-# Schema Design
-
-<img width="895" alt="스크린샷 2020-07-01 오후 5 53 26" src="https://user-images.githubusercontent.com/46562138/86224895-6c1c4e80-bbc4-11ea-8091-d0ad5f42cf51.png">
-
-# Task Flow
+  #### 1-1. Stack
+    - Front-end : React, Bootstrap, Axios
+    - Tools :  Github, Notion, Slack
 
 
-<img width="426" alt="스크린샷 2020-07-01 오후 4 13 09" src="https://user-images.githubusercontent.com/46562138/86214942-df1ec880-bbb6-11ea-9648-4cde9200ed0c.png"></img>
+  #### Task Flow
+    <img width="426" alt="스크린샷 2020-07-01 오후 4 13 09" src="https://user-images.githubusercontent.com/46562138/86214942-df1ec880-bbb6-11ea-9648-4cde9200ed0c.png"></img>
 
 # WireFrame
 
